@@ -32,7 +32,7 @@
 fn main() {
     let mut v = Vec::new();
     println!("vector before for loop {:?}", v);
-    for i in 0..100000000 {
+    for i in 0..10 {
         v.push(i);
     }
     println!("vector after for loop {:?}", v);
