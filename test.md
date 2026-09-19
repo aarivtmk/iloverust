@@ -104,7 +104,11 @@ let result = if price > threshold {
 
 15. Parameters vs arguments
 ```rust 
-fn add(a: i32, b: i32) -> i32 
+fn add(a: i32, b: i32) -> i32 // parameters
+
+fn main(){
+    add(2,4) // arguments
+}
 ```
 16. output of this code
 ```rust
@@ -142,7 +146,7 @@ let x: u8 = 10;
 let y: u64 = 10;
 ```
 
-19. On phunsuk we have 1 million users, and whats the best type for age variable to store?
+19. On phunsuk we have 1 billion users, and whats the best type for age variable to store?
 
 20.
 ```rust
@@ -182,4 +186,46 @@ if price > 100 {
 25. explain Display trait
 26. explain padding 
 27. explain alignment - u8, alignment ___, u64 alignment ____
-28.write rust code for mutable reference
+28. write rust code for mutable reference
+29. explain 
+```rust
+fn main() {
+    let s = String::from("hello");
+
+    let a = &s;
+    let b = &s;
+
+    println!("{}", a);
+    println!("{}", b);
+}
+```
+
+30. explain
+
+```rust
+let mut numbers = Vec::new();
+
+numbers.push(10);
+numbers.push(20);
+numbers.push(30);
+```
+31. explain
+```rust
+let mut v = Vec::new();
+
+for i in 0..1_000_000 {
+    v.push(i);
+}
+```
+
+
+32. explain
+```rust
+let mut v = Vec::with_capacity(1_000_000);
+```
+
+33. slices
+```rust
+let numbers = vec![10, 20, 30, 40, 50];
+let slice = &numbers[1..4];
+```
