@@ -1,0 +1,22 @@
+trait Speak {
+    fn speak(&self);
+}
+
+struct Dog;
+
+impl Speak for Dog {
+    fn speak(&self) {
+        println!("Woof!");
+    }
+}
+
+struct Cat;
+
+impl Speak for Cat {
+    fn speak(&self) {
+        println!("Meow!");
+    }
+}
+fn print<T: std::fmt::Display>(x: T) {
+    println!("{}", x);
+}
