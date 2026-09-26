@@ -6,8 +6,20 @@
 
 //     {
 //         let r = &x;
-//         println!("{}", r);
+//         println!("r value inside block {}", r);
 //     }
+//     println!("r value outside block {}", r);
+// }
+
+// fn main() {
+//     let r;
+//     let x = 10;
+
+//     {
+//         r = &x;
+//     }
+
+//     println!("{}", r);
 // }
 
 // fn main() {
@@ -20,14 +32,13 @@
 
 //     println!("{}", r);
 // }
-
 // A lifetime is essentially:
 
-// The region of execution during which a referenced value is guaranteed to remain valid for that reference.
+//
 
 // <'a> means we are declaring a lifetime parameter named 'a for this function.
-// fn first(x: &str, y: &str) -> &str {
-fn first<'a>(x: &'a str, y: &'a str) -> &'a str {
+// fn longest_string(x: &str, y: &str) -> &str {
+fn longest_string<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
     } else {
@@ -35,21 +46,19 @@ fn first<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
+// a -----------
+// b -----
 fn main() {
-    // let result;
-
     // let a = String::from("aariv");
     // let b = String::from("mountainkid");
 
-    // result = first(&a, &b);
+    // let result = longest_string(&a, &b);
 
     // println!("{}", result);
 
-    let a = String::from("aariv");
+    let a = String::from("mountainkid");
     let result;
-    {
-        let b = String::from("mountainkid");
-        result = first(&a, &b);
-        println!("{}", result);
-    }
+    let b = String::from("nanda");
+    result = longest_string(&a, &b);
+    println!("{}", result);
 }

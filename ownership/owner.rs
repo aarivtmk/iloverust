@@ -5,7 +5,7 @@ fn consume(s: String) {
 fn main() {
     let s = String::from("hello");
 
-    consume(s);
+    consume(s.clone());
 
     println!("{}", s); // ❌
 }
