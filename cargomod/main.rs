@@ -1,7 +1,7 @@
 mod sbi;
 use sbi::{interest::calculate_interest, reward::get_rewards};
 mod math;
-use math::User;
+use animal::Dog;
 fn main() {
     let u = User {
         name: "steve".to_string(),
