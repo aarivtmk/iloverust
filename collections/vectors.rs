@@ -5,12 +5,3 @@ fn main() {
 }
 
 // Online C compiler to run C program online
-#include <stdio.h>
-#include <string.h>
-int main() {
-    // Write C code here
-    char *s = "🦀";
-    printf("%zu\n bytes", strlen(s));
-
-    return 0;
-}
