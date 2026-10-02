@@ -1,0 +1,35 @@
+first line
+second line
+shimla is the capital of Himachal Pradesh.
+d$ - delete everything from the current cursor to the end of the line.
+dd - delete entire line
+dw -
+de
+yy
+p
+shift + p
+u
+4yy
+
+j,k,l,h
+b,w,e,0,$,
+10j, 10k
+gg,
+G
+:line num
+ctrl + u
+ctrl + d
+r
+dd - delete a line
+a - append next to the cursor
+shift + a
+o - 
+shift + O
+x
+set nu
+:w
+:q - quit
+:q!
+:wq
+
+

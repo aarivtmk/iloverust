@@ -10,3 +10,13 @@ fn greet(message: &'static str) -> &'static str {
     println!("inside greet {}", message);
     message
 }
+
+// static -
+OSI model
+
+telegram - steve send message: 'Hi' to amy
+
+medha(phone)| Amy (phone)
+            |
+            |
+            |

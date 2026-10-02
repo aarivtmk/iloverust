@@ -14,12 +14,17 @@
 // fn main() {
 //     let r;
 //     let x = 10;
-
+//     // let r or let *r
+//     // print *r / r both are same
+//     // {}
 //     {
+//         let c;
 //         r = &x;
+//         c = 100;
 //     }
 
-//     println!("{}", r);
+//     println!("{}", *r);
+//     println!("{}", c);
 // }
 
 // fn main() {
@@ -38,7 +43,7 @@
 
 // <'a> means we are declaring a lifetime parameter named 'a for this function.
 // fn longest_string(x: &str, y: &str) -> &str {
-fn longest_string<'a>(x: &'a str, y: &'a str) -> &'a str {
+fn longest_string<'m>(x: &'m str, y: &'m str) -> &'m str {
     if x.len() > y.len() {
         x
     } else {
@@ -49,16 +54,16 @@ fn longest_string<'a>(x: &'a str, y: &'a str) -> &'a str {
 // a -----------
 // b -----
 fn main() {
-    // let a = String::from("aariv");
-    // let b = String::from("mountainkid");
-
-    // let result = longest_string(&a, &b);
-
-    // println!("{}", result);
-
-    let a = String::from("mountainkid");
     let result;
-    let b = String::from("nanda");
-    result = longest_string(&a, &b);
-    println!("{}", result);
+    let a = String::from("siliconvalleyusa");
+    {
+        let b = String::from("california");
+        result = longest_string(&a, &b);
+        println!("{}", result);
+    }
+    //     let a = String::from("mountainkid");
+    //     let result;
+    //     let b = String::from("nanda");
+    //     result = longest_string(&a, &b);
+    //     println!("{}", result);
 }

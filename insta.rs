@@ -35,7 +35,6 @@ impl Human for HumanBeing {
         println!("Hey Hey");
     }
 }
-
 fn animal_bark<T: Animal>(a: T) {
     a.bark();
 }
