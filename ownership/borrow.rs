@@ -17,7 +17,7 @@ fn main() {
 // let a = x;
 // println!(a)
 // println!(x)
-
+// free,malloc, calloc -> garbage collection
 fn main() {
     let a = String::from("nanda");
     // let a = 10; // i,u,f,

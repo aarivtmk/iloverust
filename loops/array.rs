@@ -1,5 +1,5 @@
 fn main() {
-    let arr = [2, 5, 6];
+    let mut arr: [i32; 3] = [2, 5, 6];
     //  a simple for loop
     for x in arr {
         println!("{}", x + 1);

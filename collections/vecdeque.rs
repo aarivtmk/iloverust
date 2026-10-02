@@ -28,7 +28,6 @@ fn main() {
 * Why not use Vec?
 
 With a Vec:
-
 vec.insert(0, 5);
 
 Rust has to move all existing elements:
