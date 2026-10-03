@@ -11,14 +11,14 @@ pop  → END or FRONT
 use std::collections::VecDeque;
 fn main() {
     let mut queue = VecDeque::new();
-    queue.push_back(10);
-    queue.push_back(20);
+    queue.push_back(10); // O(1)
+    queue.push_back(20); // O(1)
     println!("queue is {:?}", queue);
-    queue.push_front(40);
+    queue.push_front(40); // O(1)
     println!("queue is {:?}", queue);
-    queue.pop_back();
+    queue.pop_back(); O(1)
     println!("queue is {:?}", queue);
-    queue.pop_front();
+    queue.pop_front(); O(1)
     println!("queue is {:?}", queue);
     println!("first element is {:?}", queue[0]);
 }

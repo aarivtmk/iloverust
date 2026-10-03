@@ -21,7 +21,7 @@ impl Container for Names {
     type Item = String;
 
     fn get(&self) -> String {
-        String::from("Aariv")
+        String::from("woz")
     }
 }
 

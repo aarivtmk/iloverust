@@ -20,3 +20,7 @@ impl Speak for Cat {
 fn print<T: std::fmt::Display>(x: T) {
     println!("{}", x);
 }
+
+fn main() {
+    d.speak() // rust converts  that into Dog::speak()
+}

@@ -8,7 +8,10 @@ fn main() {
     routes.push_back("Spiti");
     routes.push_back("Manali");
     routes.push_front("Chandigarh");
-    println!("routes are {:?}", routes);
+    println!("first element is {:?}", routes.front());
+    if let Some(ele) = routes.front() {
+        println!("routes are {:?}", ele);
+    }
 }
 
 /*
@@ -24,9 +27,9 @@ fn main() {
 
 STACK
 ┌─────────────────┐
-list         │ head ────────────┼────────────┐
+routes         │ head ────────────┼────────────┐
 │ tail ────────┐   │            │
-│ len = 3      │   │            │
+│ len = 4     │   │            │
 └──────────────│───│────────────┘
         │   │
         │   ↓

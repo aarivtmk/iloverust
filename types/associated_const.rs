@@ -15,9 +15,7 @@ impl Shape for Square {
 }
 
 fn main() {
-    let t = Traingle;
-
-    println!("{}", t.SIDES); // 3
+    println!("{}", Triangle::SIDES); // 3
 
     println!("{}", Square::SIDES); // 4
 }
