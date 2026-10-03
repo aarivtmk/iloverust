@@ -15,12 +15,16 @@ console.log(`addition of ${a} and ${b} is ${add(a,b)}`)
 
 // function expression
 
-let sub = (x, y) => x-y
+let sub = (x, y) => x - y
 console.log(sub(1,2))
+
+// callback function in js - function sending function as
+// parameter
+
 
 // function passing function as argument
 function print_result(a, b, addition) {
-  return (a,b) => a+b;
+  return addition(a,b);
 }
 let r = print_result(6,8,add)
 console.log("r is ",r)

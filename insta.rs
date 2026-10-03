@@ -11,6 +11,10 @@ struct HumanBeing {
     age: i32,
 }
 
+trait Domestic {
+    fn is_domestic(&self) -> bool;
+}
+
 trait Animal {
     fn bark(&self);
 }
@@ -19,12 +23,7 @@ trait Human {
     fn speak(&self);
 }
 
-impl Animal for Dog {
-    fn bark(&self) {
-        println!("woof woof");
-    }
-}
-impl Animal for Cat {
+impl<T: Domestic> Animal for T {
     fn bark(&self) {
         println!("meo meo");
     }

@@ -1,7 +1,7 @@
-// closures
+// closures - anonymous function
 
 fn main() {
-    let d = 1000;
+    let e = 1000;
     // fn sub(a: i32, b: i32) -> i32 {
     //     a - d
     // }
