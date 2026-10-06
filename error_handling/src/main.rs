@@ -13,7 +13,7 @@ enum RouteError {
 }
 
 fn main() {
-    let result: Result<String, RouteError> = Err(RouteError::NoRoute);
+    let result: Result<String, RouteError> = Err(RouteError::RoadNotFound);
 
-    println!("{:?}", result.unwrap_err());
+    println!("{}", result.unwrap_err());
 }
