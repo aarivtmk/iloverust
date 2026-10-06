@@ -2,6 +2,7 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 enum RouteError {
+    // #[error("...")] is an attribute macro provided by thiserror.
     #[error("invalid location")]
     InvalidLocation,
 
