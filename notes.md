@@ -1,480 +1,1158 @@
+# MASTER SYSTEMS ENGINEERING & RUST ROADMAP
 
+> Goal:
+> Become an engineer capable of understanding, designing, implementing,
+> optimizing, debugging and scaling complete computer systems from first principles.
+>
+> Primary language: Rust  
+> Supporting languages: C, Assembly, SQL, TypeScript
+>
+> Core philosophy:
+> Learn the abstraction.  
+> Understand what it hides.  
+> Rebuild a smaller version.  
+> Measure it.  
+> Break it.  
+> Understand why it failed.  
+> Then use the production abstraction.
 
-```text
-                    PRODUCTS
-       Blockchain / AI / Maps / Apps
-                           │
-                ─────────────────────
-                DISTRIBUTED SYSTEMS
-                ─────────────────────
-                NETWORKING
-                ─────────────────────
-                DATABASES / STORAGE
-                ─────────────────────
-                OPERATING SYSTEMS
-                ─────────────────────
-                CONCURRENCY / PARALLELISM
-                ─────────────────────
-                COMPUTER ARCHITECTURE
-                ─────────────────────
-                DATA STRUCTURES / ALGORITHMS
-                ─────────────────────
-                PROGRAMMING LANGUAGES
-                ─────────────────────
-                MATHEMATICS
-                ─────────────────────
-                    PHYSICS / LOGIC
-```
+***
 
----
+# 0. ENGINEERING MINDSET
 
-# 1. Rust — your primary language
+## 0.1 First Principles Thinking
 
+- Define the actual problem
+- Identify constraints
+- Separate requirements from assumptions
+- Reduce problems to primitives
+- Eliminate unnecessary components
+- Question every abstraction
+- Question every dependency
+- Understand causality
+- Think in trade-offs
+- Think in bottlenecks
+- Think in invariants
+- Think in failure modes
 
-### Language fundamentals
+## 0.2 Systems Thinking [DONE]
 
+- State
+- Inputs
+- Outputs
+- Transformations
+- Dependencies
+- Resources
+- Constraints
+- Failure modes
+- Feedback loops
+- Observability
+- Recovery
 
-- variables
-- mutability
-- scalar types
-- compound types
-- functions
-- expressions
-- control flow
-- modules
-- crates
-- packages
-- Cargo
-- visibility
-- `struct`
-- `enum`
-- `match`
-- pattern matching
-- `Option`
-- `Result`
-- error propagation
-- `if let`
-- `while let`
+## 0.3 Engineering Trade-offs [DONE]
 
-### Ownership system
+- Latency vs throughput
+- Memory vs CPU
+- Storage vs computation
+- Consistency vs availability
+- Simplicity vs flexibility
+- Reliability vs cost
+- Generality vs specialization
+- Abstraction vs control
+- Development speed vs runtime efficiency
 
-This is the heart of Rust.
+## 0.4 Engineering Habits
 
-- ownership
-- moves
-- copies
-- borrowing
-- mutable borrowing
-- references
-- slices
-- lifetimes
-- lifetime elision
-- lifetime annotations
-- `'static`
-- borrowing rules
-- ownership across functions
-- ownership inside structs
-- ownership in collections
+- Read documentation
+- Read source code
+- Read RFCs
+- Read technical papers
+- Read specifications
+- Debug from first principles
+- Benchmark before optimizing
+- Profile before guessing
+- Write minimal reproductions
+- Build from scratch
+- Test assumptions
+- Document decisions
 
+# 1. PHYSICS & LOGIC
 
+## 1.1 Physics Fundamentals
 
-### Types
+- Matter
+- Energy
+- Force
+- Motion
+- Electricity
+- Voltage
+- Current
+- Resistance
+- Power
+- Electromagnetism
+- Signals
+- Frequency
+- Waves
 
-- generics
-- traits
-- trait bounds
-- associated types
-- associated constants
-- default trait methods
-- blanket implementations
-- `impl Trait`
-- `dyn Trait`
-- trait objects
-- static vs dynamic dispatch
-- `where`
-- type aliases
-- newtype pattern
-- phantom types
-- `Send`
-- `Sync`
+## 1.2 Digital Logic
 
-### Collections
-
-Know the internals and tradeoffs of:
-
-- `Vec`
-- `VecDeque`
-- `LinkedList`
-- `HashMap`
-- `HashSet`
-- `BTreeMap`
-- `BTreeSet`
-- arrays
-- slices
-- strings
-- `String`
-- `&str`
-- `Bytes`
-
-And understand:
-
-**Why would I choose this data structure?**
-
-Not just how to write it.
-
----
-
-# 2. Rust error handling
-
-Learn to design failure rather than merely handle exceptions.
-
-- `Result`
-- `Option`
-- `?`
-- `unwrap`
-- `expect`
-- custom errors
-- error enums
-- `thiserror`
-- `anyhow`
-- error propagation
-- error boundaries
-- recoverable vs unrecoverable errors
-- logging
-- tracing
-- graceful shutdown
-
-For production systems, this matters enormously.
-
----
-
-# 3. Iterators + functional Rust
-
-Master:
-
-- iterators
-- `iter`
-- `iter_mut`
-- `into_iter`
-- `map`
-- `filter`
-- `fold`
-- `reduce`
-- `collect`
-- `find`
-- `position`
-- `any`
-- `all`
-- `enumerate`
-- `zip`
-- `chain`
-- closures
-- `move`
-- function pointers
-- iterator adapters
-
-Goal:
-
-```text
-imperative thinking
-        ↓
-data transformation thinking
-```
-
----
-
-# 4. Async Rust
-
-
-Learn:
-
-- Futures
-- `async`
-- `.await`
-- Tokio
-- runtime
-- tasks
-- `spawn`
-- `JoinHandle`
-- `JoinSet`
-- channels
-- `select!`
-- timers
-- cancellation
-- cancellation safety
-- `Pin`
-- `Poll`
-- `Waker`
-- executors
-- cooperative scheduling
-- blocking vs non-blocking
-- `spawn_blocking`
-
-Eventually understand what happens underneath:
-
-```rust
-some_future.await
-```
-
-You don't need to implement Tokio tomorrow.
-
-But you should understand **what a Future actually is**.
-
----
-
-# 5. Concurrency
-
-Learn:
-
-- threads
-- shared state
-- message passing
-- channels
-- mutexes
-- `Mutex`
-- `RwLock`
-- atomics
-- `Arc`
-- `Rc`
-- `Weak`
-- `Send`
-- `Sync`
-- race conditions
-- deadlocks
-- starvation
-- livelocks
-- lock contention
-- lock-free concepts
-- memory ordering
-- atomics
-
-Then:
-
-**concurrency ≠ parallelism**
-
-Understand the difference deeply.
-
----
-
-# 6. Parallelism
-
-Learn:
-
-- CPU cores
-- processes
-- threads
-- work partitioning
-- task parallelism
-- data parallelism
-- SIMD
-- cache locality
-- false sharing
-- thread pools
-- CPU affinity
-- batching
-- pipelining
-
-This becomes extremely relevant for:
-
-- market-data processing
-- PBF processing
-- routing
-- embeddings
-- inference
-- blockchain validation
-
----
-
-# 7. Computer architecture
-
-This is where you stop being merely a framework programmer.
-
-Learn:
-
-- CPU
+- Boolean algebra
+- AND
+- OR
+- NOT
+- XOR
+- NAND
+- NOR
+- Truth tables
+- Logic gates
+- Combinational logic
+- Sequential logic
+- Flip-flops
+- Registers
+- Counters
+- Multiplexers
+- Adders
 - ALU
-- registers
-- instruction cycle
-- machine instructions
-- assembly basics
-- memory hierarchy
-- RAM
-- cache
-- L1/L2/L3
-- cache lines
-- branch prediction
-- virtual memory
-- pages
-- TLB
-- memory-mapped I/O
-- interrupts
-- DMA
-- buses
-- storage
-- SSD
-- HDD
-- NUMA
-- endianness
+- Finite-state machines
 
-Learn enough C/assembly to understand what Rust eventually becomes.
+## 1.3 Information Representation
 
----
+- Bits
+- Bytes
+- Binary
+- Decimal
+- Hexadecimal
+- Bitwise operations
+- Bit masks
+- Bit packing
+- Signed integers
+- Unsigned integers
+- Two's complement
+- Integer overflow
+- Fixed-point representation
+- Floating-point representation
+- IEEE-754
+- NaN
+- Infinity
+- Precision
+- Rounding
+- Endianness
 
-# 8. Operating systems
+# 2. MATHEMATICS
 
-Learn:
+## 2.1 Discrete Mathematics
 
-- processes
-- threads
-- scheduling
-- context switching
-- system calls
-- virtual memory
-- page tables
-- filesystems
-- file descriptors
-- sockets
-- signals
-- pipes
-- IPC
-- permissions
-- kernel/user space
-- memory allocation
-- interrupts
-- synchronization
+- Sets
+- Relations
+- Functions
+- Logic
+- Propositions
+- Proofs
+- Induction
+- Combinatorics
+- Permutations
+- Combinations
+- Graph theory
+- Trees
+- Recurrence relations
 
-Then build:
+## 2.2 Algebra
 
-**your own tiny shell.**
+- Algebraic manipulation
+- Equations
+- Inequalities
+- Functions
+- Exponents
+- Logarithms
 
-Later:
+## 2.3 Linear Algebra
 
-**your own tiny OS/kernel experiments.**
+- Scalars
+- Vectors
+- Matrices
+- Matrix multiplication
+- Dot products
+- Cross products
+- Linear transformations
+- Eigenvalues
+- Eigenvectors
+- Vector spaces
 
----
+## 2.4 Calculus
 
-# 9. Data structures
+- Limits
+- Derivatives
+- Partial derivatives
+- Integrals
+- Gradients
+- Optimization
 
-You need these cold.
+## 2.5 Probability
 
-### Linear
+- Probability
+- Conditional probability
+- Bayes theorem
+- Random variables
+- Expected value
+- Variance
+- Standard deviation
+- Probability distributions
+- Normal distribution
+- Bernoulli distribution
+- Poisson distribution
+- Markov chains
 
-- arrays
-- linked lists
-- stacks
-- queues
-- deques
+## 2.6 Statistics
 
-### Trees
+- Sampling
+- Mean
+- Median
+- Variance
+- Correlation
+- Regression
+- Confidence intervals
+- Hypothesis testing
 
-- binary trees
+## 2.7 Systems Mathematics
+
+- Graph theory
+- Queueing theory
+- Little's Law
+- Information theory
+- Entropy
+- Complexity theory
+
+# 3. COMPUTER FUNDAMENTALS
+
+## 3.1 Data Representation
+
+- Binary
+- Hexadecimal
+- Bytes
+- Memory addresses
+- Integer representation
+- Floating-point representation
+- Character encoding
+- ASCII
+- Unicode
+- UTF-8
+
+## 3.2 Serialization
+
+- Binary serialization
+- Text serialization
+- JSON
+- MessagePack
+- Protocol Buffers
+- Serialization overhead
+- Zero-copy serialization
+- Versioned schemas
+- Compatibility
+
+## 3.3 Executables
+
+- Object files
+- Executables
+- ELF
+- Sections
+- Symbols
+- Relocations
+- Static linking
+- Dynamic linking
+- Shared libraries
+- Loaders
+- Debug symbols
+
+# 4. C PROGRAMMING
+
+## 4.1 C Fundamentals
+
+- Variables
+- Types
+- Functions
+- Structs
+- Enums
+- Unions
+- Preprocessor
+- Header files
+- Compilation
+
+## 4.2 Memory
+
+- Pointers
+- Pointer arithmetic
+- References through pointers
+- Stack
+- Heap
+- malloc
+- calloc
+- realloc
+- free
+- Memory ownership
+- Buffer management
+
+## 4.3 Low-Level C
+
+- Function pointers
+- Struct layout
+- Alignment
+- Padding
+- Undefined behavior
+- Strict aliasing
+- Volatile
+- Atomics
+- Memory ordering
+- ABI
+- FFI
+
+## 4.4 C Toolchain
+
+- GCC
+- Clang
+- Preprocessor
+- Compiler
+- Assembler
+- Linker
+- Debugger
+- GDB
+
+# 5. ASSEMBLY & MACHINE CODE
+
+## 5.1 Assembly Fundamentals
+
+- Registers
+- Instruction pointer
+- Stack pointer
+- Flags
+- Instructions
+- Loads
+- Stores
+- Arithmetic
+- Comparisons
+- Branches
+- Jumps
+- Function calls
+- Returns
+
+## 5.2 Calling Conventions
+
+- Stack frames
+- Arguments
+- Return values
+- Register conventions
+- ABI
+- Stack alignment
+
+## 5.3 CPU-Level Programming
+
+- Atomics
+- Compare-and-swap
+- Memory barriers
+- SIMD
+- Intrinsics
+- Syscalls
+
+## 5.4 Architecture
+
+- x86-64
+- ARM64
+- Instruction sets
+- RISC vs CISC
+- Machine code
+
+## 5.5 Tooling
+
+- objdump
+- nm
+- readelf
+- gdb
+- lldb
+- perf
+
+# 6. RUST — PRIMARY LANGUAGE
+
+## 6.1 Language Fundamentals
+
+- Variables
+- Mutability
+- Scalar types
+- Compound types
+- Functions
+- Expressions
+- Statements
+- Control flow
+- Modules
+- Crates
+- Packages
+- Cargo
+- Visibility
+- Structs
+- Enums
+- Match
+- Pattern matching
+- Option
+- Result
+- if let
+- while let
+
+## 6.2 Ownership
+
+- Ownership
+- Moves
+- Copies
+- Borrowing
+- Mutable borrowing
+- References
+- Slices
+- Lifetimes
+- Lifetime elision
+- Lifetime annotations
+- `'static`
+- Borrow checker
+- Ownership across functions
+- Ownership inside structs
+- Ownership in collections
+
+## 6.3 Types
+
+- Generics
+- Traits
+- Trait bounds
+- Associated types
+- Associated constants
+- Default trait methods
+- Blanket implementations
+- impl Trait
+- dyn Trait
+- Trait objects
+- Static dispatch
+- Dynamic dispatch
+- where clauses
+- Type aliases
+- Newtype pattern
+- Phantom types
+- Marker types
+- Send
+- Sync
+
+## 6.4 Memory
+
+- Stack
+- Heap
+- Box
+- Rc
+- Arc
+- Weak
+- Cell
+- RefCell
+- Mutex
+- RwLock
+- MaybeUninit
+- ManuallyDrop
+- Unsafe
+- Raw pointers
+- Memory layout
+
+## 6.5 Collections
+
+- Vec
+- VecDeque
+- LinkedList
+- HashMap
+- HashSet
+- BTreeMap
+- BTreeSet
+- Arrays
+- Slices
+- String
+- &str
+- Bytes
+
+For every collection:
+
+- Internal representation
+- Complexity
+- Allocation behavior
+- Cache locality
+- Memory overhead
+- Use cases
+- Trade-offs
+
+## 6.6 Error Handling
+
+- Result
+- Option
+- ?
+- unwrap
+- expect
+- Custom errors
+- Error enums
+- thiserror
+- anyhow
+- Error propagation
+- Error boundaries
+- Recoverable errors
+- Unrecoverable errors
+- Logging
+- Tracing
+- Graceful shutdown
+
+## 6.7 Iterators & Functional Rust
+
+- Iterator
+- iter
+- iter_mut
+- into_iter
+- map
+- filter
+- fold
+- reduce
+- collect
+- find
+- position
+- any
+- all
+- enumerate
+- zip
+- chain
+- Closures
+- move closures
+- Function pointers
+- Iterator adapters
+
+## 6.8 Advanced Rust
+
+- Macros
+- Declarative macros
+- Procedural macros
+- Derive macros
+- Unsafe Rust
+- FFI
+- Pin
+- Unpin
+- Futures
+- Async
+- Generators/concepts
+- Trait object internals
+- Vtables
+- Monomorphization
+- Zero-cost abstractions
+- Const generics
+- Associated type bounds
+
+## 6.9 Rust Tooling
+
+- rustc
+- Cargo
+- rustfmt
+- Clippy
+- rust-analyzer
+- cargo test
+- cargo bench
+- cargo flamegraph
+- cargo audit
+- cargo tree
+- Miri
+- Sanitizers
+- Fuzzing
+
+# 7. COMPILERS & LANGUAGE IMPLEMENTATION
+
+## 7.1 Compiler Pipeline
+
+```text
+Source Code
+    ↓
+Lexer
+    ↓
+Parser
+    ↓
+AST
+    ↓
+Semantic Analysis
+    ↓
+Type Checking
+    ↓
+Intermediate Representation
+    ↓
+Optimization
+    ↓
+Code Generation
+    ↓
+Assembly
+    ↓
+Linker
+    ↓
+Binary
+```
+
+## 7.2 Compiler Concepts
+
+- Lexing
+- Parsing
+- AST
+- Symbol tables
+- Scope
+- Type systems
+- Type checking
+- Generic types
+- Monomorphization
+- Intermediate representation
+- SSA
+- Optimization
+- Constant folding
+- Dead-code elimination
+- Inlining
+- Register allocation
+- Code generation
+
+## 7.3 Toolchains
+
+- LLVM
+- LLVM IR
+- rustc architecture
+- Linkers
+- Loaders
+- ELF
+- DWARF
+- Debugging information
+
+## 7.4 Build
+
+- Tiny interpreter
+- Tiny compiler
+- Tiny programming language
+
+# 8. DATA STRUCTURES
+
+## 8.1 Linear
+
+- Arrays
+- Dynamic arrays
+- Linked lists
+- Stacks
+- Queues
+- Deques
+- Ring buffers
+
+## 8.2 Trees
+
+- Binary trees
 - BST
 - AVL
-- red-black trees
-- heaps
-- tries
+- Red-black trees
+- Heaps
+- Tries
 - B-trees
+- B+ trees
 
-### Hashing
+## 8.3 Hashing
 
-- hash tables
-- collision resolution
-- load factor
-- hash functions
+- Hash tables
+- Hash functions
+- Collision resolution
+- Load factor
+- Open addressing
+- Chaining
+- Consistent hashing
 
-### Graphs
+## 8.4 Graphs
 
-- adjacency list
-- adjacency matrix
+- Graph representation
+- Adjacency list
+- Adjacency matrix
+- Directed graphs
+- Undirected graphs
+- Weighted graphs
+- DAGs
 - BFS
 - DFS
-- DAG
-- topological sort
-- weighted graphs
 
----
+## 8.5 Specialized Structures
 
-# 10. Algorithms
+- Bloom filters
+- Skip lists
+- LRU cache
+- LFU cache
+- Union-Find
+- Segment trees
+- Fenwick trees
+- Priority queues
+- Sparse tables
 
-Learn:
+# 9. ALGORITHMS
 
-### Complexity
+## 9.1 Complexity
 
 - Big-O
 - Big-Theta
 - Big-Omega
-- amortized complexity
-- time/space tradeoffs
+- Amortized complexity
+- Time complexity
+- Space complexity
+- Memory complexity
+- Cache complexity
 
-### Searching
+## 9.2 Searching
 
-- linear search
-- binary search
-- hash lookup
+- Linear search
+- Binary search
+- Hash lookup
+- Tree search
 
-### Sorting
+## 9.3 Sorting
 
-- insertion
-- selection
-- merge
-- quicksort
-- heap sort
-- counting/radix basics
+- Insertion sort
+- Selection sort
+- Merge sort
+- Quicksort
+- Heapsort
+- Counting sort
+- Radix sort
 
-### Graph algorithms
+## 9.4 Graph Algorithms
 
 - BFS
 - DFS
 - Dijkstra
 - Bellman-Ford
 - Floyd-Warshall
-- A\*
-- topological sorting
-- minimum spanning tree
+- A*
+- Topological sort
+- Minimum spanning tree
+- Kruskal
+- Prim
+- Strongly connected components
+- Shortest paths
+- Maximum flow
 
-### Problem solving
+## 9.5 Problem Solving
 
-- recursion
-- backtracking
-- divide & conquer
-- greedy
-- dynamic programming
-- sliding window
-- two pointers
-- prefix sums
-- binary search on answer
+- Recursion
+- Backtracking
+- Divide and conquer
+- Greedy algorithms
+- Dynamic programming
+- Sliding window
+- Two pointers
+- Prefix sums
+- Binary search on answer
 
----
+## 9.6 Systems Algorithms
 
-# 11. Networking
+- Scheduling
+- Caching
+- Eviction
+- Load balancing
+- Rate limiting
+- Consistent hashing
+- Bloom filters
+- Routing
 
-This is mandatory if you want to build serious servers.
+# 10. MEMORY SYSTEMS
 
-Understand the stack:
+## 10.1 Memory Hierarchy
+
+- Registers
+- L1 cache
+- L2 cache
+- L3 cache
+- RAM
+- SSD
+- HDD
+- Remote storage
+
+## 10.2 Memory Management
+
+- Stack allocation
+- Heap allocation
+- malloc
+- free
+- Allocators
+- Arena allocators
+- Bump allocators
+- Slab allocators
+- Pool allocators
+- Fragmentation
+- Alignment
+- Padding
+- Object layout
+
+## 10.3 Virtual Memory
+
+- Virtual addresses
+- Physical addresses
+- Pages
+- Page tables
+- Multi-level page tables
+- TLB
+- Page faults
+- Demand paging
+- Copy-on-write
+- Memory mapping
+- mmap
+- Shared memory
+
+## 10.4 Advanced Memory
+
+- Cache lines
+- Cache locality
+- False sharing
+- NUMA
+- Memory bandwidth
+- Memory ordering
+- Atomics
+- DMA
+- Zero-copy
+- Memory-mapped files
+
+# 11. COMPUTER ARCHITECTURE
+
+## 11.1 CPU
+
+- CPU
+- ALU
+- Registers
+- Control unit
+- Instruction cycle
+- Machine instructions
+- Instruction decoding
+
+## 11.2 CPU Performance
+
+- Pipelines
+- Branch prediction
+- Speculative execution
+- Out-of-order execution
+- Instruction-level parallelism
+- SIMD
+- Superscalar execution
+
+## 11.3 Memory
+
+- RAM
+- Cache
+- Cache hierarchy
+- Cache lines
+- TLB
+- Memory controller
+- Memory bandwidth
+- NUMA
+
+## 11.4 Hardware
+
+- Buses
+- PCIe
+- USB
+- NVMe
+- SATA
+- DMA
+- Interrupts
+- Network cards
+- Storage controllers
+- GPUs
+
+# 12. OPERATING SYSTEMS
+
+## 12.1 Processes
+
+- Processes
+- Threads
+- Process lifecycle
+- Scheduling
+- Context switching
+- CPU scheduling
+- Priorities
+- Signals
+
+## 12.2 Kernel
+
+- Kernel/user space
+- System calls
+- Interrupts
+- Kernel scheduling
+- Kernel memory
+- Device drivers
+- Kernel synchronization
+
+## 12.3 IPC
+
+- Pipes
+- Unix sockets
+- Shared memory
+- Signals
+- Message queues
+- Semaphores
+
+## 12.4 Filesystems
+
+- Files
+- Directories
+- Inodes
+- File descriptors
+- Permissions
+- Mounting
+- Journaling
+- Page cache
+- VFS
+- Filesystem consistency
+
+## 12.5 Build
+
+- Tiny shell
+- Process manager
+- Filesystem experiments
+- Kernel experiments
+
+# 13. LINUX INTERNALS
+
+- Linux process model
+- `/proc`
+- `/proc/<pid>`
+- Syscalls
+- strace
+- ltrace
+- Signals
+- File descriptors
+- epoll
+- io_uring
+- mmap
+- sendfile
+- splice
+- Pipes
+- Unix sockets
+- cgroups
+- namespaces
+- capabilities
+- containers
+- seccomp
+- Linux networking
+- Linux scheduler
+
+# 14. I/O ARCHITECTURE
+
+## 14.1 I/O Models
+
+- Blocking I/O
+- Non-blocking I/O
+- Synchronous I/O
+- Asynchronous I/O
+- Event-driven I/O
+
+## 14.2 Event Systems
+
+- select
+- poll
+- epoll
+- kqueue
+- io_uring
+
+## 14.3 Data Movement
+
+- Buffering
+- Scatter/gather I/O
+- DMA
+- Interrupt-driven I/O
+- Zero-copy
+- sendfile
+- splice
+- Memory mapping
+
+## 14.4 Flow Control
+
+- Backpressure
+- Buffer limits
+- Queueing
+- Load shedding
+
+# 15. CONCURRENCY
+
+## 15.1 Fundamentals
+
+- Threads
+- Processes
+- Shared state
+- Message passing
+- Channels
+
+## 15.2 Synchronization
+
+- Mutex
+- RwLock
+- Semaphore
+- Condvar
+- Barrier
+- Atomics
+
+## 15.3 Failure
+
+- Race conditions
+- Data races
+- Deadlocks
+- Starvation
+- Livelocks
+- Lock contention
+- Priority inversion
+
+## 15.4 Advanced Concurrency
+
+- Lock-free algorithms
+- Wait-free algorithms
+- CAS
+- Memory ordering
+- Acquire
+- Release
+- Relaxed
+- Sequential consistency
+- Linearizability
+
+> Concurrency ≠ parallelism.
+
+# 16. PARALLELISM
+
+- CPU cores
+- Processes
+- Threads
+- Work partitioning
+- Task parallelism
+- Data parallelism
+- SIMD
+- Cache locality
+- False sharing
+- Thread pools
+- CPU affinity
+- Batching
+- Pipelining
+- Work stealing
+- Parallel reductions
+
+Applications:
+
+- Market data
+- PBF processing
+- Routing
+- Embeddings
+- AI inference
+- Blockchain validation
+
+# 17. ASYNC RUST
+
+- Futures
+- async
+- await
+- Tokio
+- Runtime
+- Tasks
+- spawn
+- JoinHandle
+- JoinSet
+- Channels
+- `select!`
+- Timers
+- Cancellation
+- Cancellation safety
+- Pin
+- Poll
+- Waker
+- Executors
+- Cooperative scheduling
+- Blocking vs non-blocking
+- spawn_blocking
+
+Deep understanding:
 
 ```text
+async function
+      ↓
+Future
+      ↓
+Poll
+      ↓
+Waker
+      ↓
+Executor
+      ↓
+Event loop
+      ↓
+OS I/O
+```
+
+# 18. NETWORKING
+
+## 18.1 Fundamentals
+
+- Bits over wire
+- Packets
+- Frames
+- MAC addresses
+- IP addresses
+- Ports
+- Routing
+- MTU
+- Fragmentation
+
+## 18.2 Network Stack
+
+```text
+Application
+    ↓
 HTTP
+    ↓
 TLS
-TCP
+    ↓
+TCP / QUIC / UDP
+    ↓
 IP
+    ↓
 Ethernet
 ```
 
-Learn:
+## 18.3 TCP
 
-- packets
-- IP
-- MAC
-- routing
-- ports
-- DNS
+- TCP lifecycle
+- Three-way handshake
+- Sequence numbers
+- ACKs
+- Retransmission
+- RTT
+- Congestion control
+- Flow control
+- Sliding window
+- Nagle
+- TIME_WAIT
+- Connection reset
+- Keep-alive
+
+## 18.4 UDP
+
+- Datagram model
+- Reliability over UDP
+- Ordering
+- Retransmission
+- Congestion handling
+
+## 18.5 DNS
+
+- DNS resolution
+- Recursive resolvers
+- Authoritative servers
+- DNS records
+- TTL
+- DNS caching
+
+## 18.6 Network Infrastructure
+
 - DHCP
 - ARP
-- TCP
-- UDP
-- congestion control
-- flow control
-- sockets
+- NAT
+- Proxies
+- Load balancers
+- CDN
+- Firewalls
+- Reverse proxies
+
+## 18.7 Modern Protocols
+
 - HTTP/1.1
 - HTTP/2
 - HTTP/3
@@ -482,358 +1160,956 @@ Learn:
 - TLS
 - WebSockets
 - gRPC
-- proxies
-- load balancers
-- NAT
-- CDN
 
-Then build:
+## 18.8 NAT Traversal
 
-**a TCP server in Rust.**
+- STUN
+- TURN
+- ICE
 
-Then:
+## 18.9 Build
 
-**an HTTP server in Rust.**
+- TCP server
+- HTTP server
+- HTTP client
+- WebSocket server
+- UDP protocol
 
-Then understand what Axum is actually giving you.
+# 19. P2P NETWORKING
 
----
+- Peer discovery
+- Peer identity
+- Peer connections
+- Peer failure
+- DHT
+- Gossip
+- Content addressing
+- Chunking
+- Parallel transfers
+- Deduplication
+- Peer reputation
+- Routing
+- NAT traversal
+- Availability
+- Replication
+- Distributed discovery
+- P2P caching
+- Incentive mechanisms
 
-# 12. Backend engineering
+Build:
 
-Then master:
+```text
+P2P file transfer system
+        ↓
+P2P messaging
+        ↓
+DHT
+        ↓
+Distributed content network
+```
 
-### Axum
+# 20. BACKEND ENGINEERING
 
-- routers
-- extractors
-- middleware
-- state
-- handlers
-- layers
-- authentication
-- authorization
+## 20.1 HTTP Services
+
+- Routing
+- Middleware
+- State
+- Handlers
+- Extractors
+- Serialization
+- Validation
+- Authentication
+- Authorization
+- Rate limiting
 - WebSockets
-- error handling
-- graceful shutdown
+- Graceful shutdown
 
-### Database
+## 20.2 Axum
 
-PostgreSQL:
+- Router
+- Extractors
+- Middleware
+- State
+- Layers
+- Handlers
+- Error handling
+- WebSockets
+- Authentication
+- Authorization
+- Graceful shutdown
 
-- SQL
-- schema design
-- indexes
+## 20.3 API Design
+
+- REST
+- RPC
+- gRPC
+- Versioning
+- Pagination
+- Idempotency
+- Rate limits
+- API contracts
+- Backward compatibility
+
+# 21. DATABASES
+
+## 21.1 SQL
+
+- SELECT
+- INSERT
+- UPDATE
+- DELETE
+- JOIN
+- GROUP BY
+- Aggregation
+- Subqueries
+- CTEs
+- Window functions
+
+## 21.2 Database Design
+
+- Schema design
+- Normalization
+- Denormalization
+- Constraints
+- Foreign keys
+- Primary keys
+- Indexes
+
+## 21.3 PostgreSQL
+
 - B-tree indexes
-- transactions
+- Transactions
 - ACID
-- isolation levels
-- locks
+- Isolation levels
+- Locks
 - MVCC
-- query planning
-- joins
-- normalization
-- denormalization
-- connection pools
-- migrations
+- Query planner
+- Query optimizer
+- Connection pools
+- Migrations
+- WAL
+- Vacuum
+- Replication
 
-### Rust database layer
+## 21.4 Rust
 
 - SQLx
-- async database access
-- transactions
-- connection pooling
-- prepared queries
+- Async database access
+- Transactions
+- Connection pooling
+- Prepared queries
 
----
+# 22. STORAGE ENGINE INTERNALS
 
-# 13. Distributed systems
+## 22.1 Storage
 
-This is the level where your blockchain and billion-user ambitions become relevant.
+- Pages
+- Page layout
+- Buffer pools
+- Page cache
+- WAL
+- fsync
+- Durability
+- Crash recovery
+- Checksums
+- Journaling
 
-Learn:
+## 22.2 Storage Structures
 
-- replication
-- sharding
-- partitioning
-- consistency
-- availability
-- latency
-- CAP theorem
-- quorum
-- leader election
-- consensus
-- distributed locks
-- distributed transactions
-- retries
-- idempotency
-- timeouts
-- backpressure
-- event-driven architecture
-- message queues
-- pub/sub
-- logs
-- consensus algorithms
+- Key-value stores
+- Memtables
+- SSTables
+- LSM trees
+- Compaction
+- B-trees
+- B+ trees
+- Indexes
+- Bloom filters
+
+## 22.3 Performance
+
+- Read amplification
+- Write amplification
+- Space amplification
+- Caching
+- Sequential vs random I/O
+
+## 22.4 Transactions
+
+- MVCC internals
+- Isolation
+- Locking
+- Recovery
+- Garbage collection
+
+Build:
+
+```text
+KV store
+    ↓
+WAL
+    ↓
+SSTable
+    ↓
+LSM tree
+    ↓
+B-tree engine
+    ↓
+Mini database
+```
+
+# 23. DISTRIBUTED SYSTEMS
+
+## 23.1 Failure Models
+
+- Crash failure
+- Network partition
+- Message loss
+- Message duplication
+- Message reordering
+- Partial failure
+- Split brain
+
+## 23.2 Reliability
+
+- Failure detection
+- Heartbeats
+- Timeouts
+- Retries
+- Exponential backoff
+- Circuit breakers
+- Load shedding
+- Graceful degradation
+- Idempotency
+
+## 23.3 Distributed Data
+
+- Replication
+- Sharding
+- Partitioning
+- Consistency
+- Availability
+- Latency
+- Quorum
+- Read replicas
+- Leader/follower
+
+## 23.4 Consensus
+
+- Consensus problem
+- Leader election
 - Raft
 - Paxos conceptually
-- eventual consistency
-- strong consistency
-- fault tolerance
 - Byzantine faults
+- Byzantine Fault Tolerance
 
----
+## 23.5 Distributed Coordination
 
-# 14. Database/storage internals
+- Distributed locks
+- Leases
+- Distributed transactions
+- Event ordering
+- Logical clocks
+- Vector clocks
+- Event sourcing
 
-Eventually build:
+## 23.6 Distributed Architecture
 
-- key-value store
-- WAL
-- LSM tree
-- SSTables
-- memtable
-- compaction
-- B-tree storage
-- indexing engine
-- caching layer
+- Event-driven architecture
+- Message queues
+- Pub/sub
+- Logs
+- Streams
+- Backpressure
+- Exactly-once vs at-least-once
+- At-most-once delivery
 
-This will dramatically improve your understanding of PostgreSQL, Redis, etc.
+## 23.7 Core Concepts
 
----
+- CAP theorem
+- Strong consistency
+- Eventual consistency
+- Fault tolerance
+- Linearizability
+- Availability
 
-# 15. Cryptography
+# 24. FORMAL METHODS & CORRECTNESS
 
-Required for your blockchain ambitions.
+## 24.1 Correctness
 
-Learn:
+- Invariants
+- Preconditions
+- Postconditions
+- State machines
+- Finite-state machines
+- Determinism
+- Safety
+- Liveness
 
-- hashing
+## 24.2 Distributed Correctness
+
+- Linearizability
+- Serializability
+- Consensus safety
+- Consensus liveness
+- Failure invariants
+
+## 24.3 Verification
+
+- Property-based testing
+- Model checking
+- Formal verification
+- Symbolic reasoning
+
+## 24.4 Rust Verification
+
+- Unit tests
+- Integration tests
+- Property tests
+- Fuzzing
+- Miri
+- Sanitizers
+- Loom
+- Concurrency testing
+
+# 25. CRYPTOGRAPHY
+
+## 25.1 Hashing
+
+- Hash functions
 - SHA-2
 - SHA-3
+- Collision resistance
+- Preimage resistance
 - HMAC
-- random numbers
-- entropy
-- symmetric encryption
+
+## 25.2 Randomness
+
+- Random numbers
+- Entropy
+- CSPRNG
+- Nonces
+
+## 25.3 Symmetric Cryptography
+
 - AES
-- asymmetric cryptography
-- RSA conceptually
-- elliptic curves
+- Modes of operation
+- Authentication
+- AEAD
+
+## 25.4 Asymmetric Cryptography
+
+- Public/private keys
+- RSA
+- Elliptic curves
 - Ed25519
-- digital signatures
-- public/private keys
-- key derivation
+- Key exchange
+
+## 25.5 Signatures
+
+- Digital signatures
+- Signing
+- Verification
+- Key derivation
+- Certificates
+
+## 25.6 Advanced
+
 - Merkle trees
-- commitments
-- zero-knowledge concepts
+- Commitments
+- Zero-knowledge concepts
+- Threshold cryptography concepts
 
-Then:
+# 26. BLOCKCHAIN
 
-**build a toy blockchain.**
-
-Not a cryptocurrency first.
-
----
-
-# 16. Blockchain
-
-Only after the foundations.
-
-Understand:
+## 26.1 Fundamentals
 
 ```text
 Transaction
-     ↓
+    ↓
 Signature
-     ↓
+    ↓
 Mempool
-     ↓
+    ↓
 Block
-     ↓
+    ↓
 Consensus
-     ↓
+    ↓
 Validation
-     ↓
+    ↓
 State
-     ↓
+    ↓
 Chain
 ```
 
-Learn:
+## 26.2 Architecture
 
-- transaction model
+- Transactions
 - UTXO
-- account model
-- blocks
-- block headers
+- Account model
+- Blocks
+- Block headers
 - Merkle trees
-- wallets
-- signatures
-- nodes
-- peer-to-peer networking
-- mempool
-- forks
-- finality
-- consensus
-- PoW
-- PoS
+- Wallets
+- Signatures
+- Nodes
+- P2P networking
+- Mempool
+- Forks
+- Finality
+
+## 26.3 Consensus
+
+- Proof of Work
+- Proof of Stake
 - Byzantine Fault Tolerance
-- validator economics
+- Validator economics
 - Sybil resistance
-- smart contracts
-- virtual machines
 
+## 26.4 Execution
 
+- Smart contracts
+- Virtual machines
+- State machines
+- Gas
+- Deterministic execution
 
----
+Build:
 
-# 17. AI engineering
+- Toy blockchain
+- Toy P2P blockchain
+- Toy consensus algorithm
 
-Later.
+> Do not start with a cryptocurrency.
 
-Learn:
+# 27. SECURITY
 
-### Mathematics
+## 27.1 Application Security
 
-- linear algebra
-- vectors
-- matrices
-- probability
-- statistics
-- derivatives
-- gradients
-- optimization
+- Authentication
+- Authorization
+- Sessions
+- JWT
+- OAuth
+- PKCE
+- TLS
+- Password hashing
+- Secrets management
+- Secure cookies
 
-### ML
+## 27.2 Web Security
 
-- regression
-- classification
-- loss functions
-- gradient descent
-- neural networks
-- backpropagation
-- embeddings
-- attention
+- SQL injection
+- XSS
+- CSRF
+- SSRF
+- Replay attacks
+- Session attacks
+- Rate limiting
+- DDoS
+
+## 27.3 Systems Security
+
+- Memory safety
+- Buffer overflows
+- Use-after-free
+- Race vulnerabilities
+- Privilege escalation
+- Sandboxing
+- Capability security
+- Secure boot
+
+## 27.4 Advanced Security
+
+- Timing attacks
+- Cache attacks
+- Side channels
+- Supply-chain attacks
+- Dependency attacks
+- Key management
+- Threat modeling
+- Fuzzing
+
+# 28. AI ENGINEERING
+
+## 28.1 Mathematics
+
+- Linear algebra
+- Probability
+- Statistics
+- Derivatives
+- Gradients
+- Optimization
+
+## 28.2 Machine Learning
+
+- Regression
+- Classification
+- Loss functions
+- Gradient descent
+- Neural networks
+- Backpropagation
+- Embeddings
+- Attention
 - Transformers
-- inference
-- quantization
-- batching
 
-### Systems
+## 28.3 AI Systems
 
-- model serving
+- Inference
+- Quantization
+- Batching
+- Model serving
 - KV cache
-- GPU basics
 - CPU inference
-- memory bandwidth
-- quantization
-- batching
-- latency
-- throughput
+- GPU basics
+- Memory bandwidth
+- Latency
+- Throughput
 
+## 28.4 AI Infrastructure
 
----
+- Model loading
+- Tokenization
+- Vector databases
+- Retrieval
+- RAG
+- Embedding pipelines
+- Model caching
+- Distributed inference
+- GPU scheduling
 
-# 18. Frontend
+# 29. FRONTEND & BROWSER ENGINEERING
 
-You don't need to become a React specialist first.
-
-Understand:
+## 29.1 Web Fundamentals
 
 - HTML
 - CSS
 - JavaScript
 - TypeScript
-- browser architecture
 - DOM
 - HTTP
 - WebSockets
-- browser storage
-- authentication
-- rendering
-- accessibility
+- Browser storage
+- Cookies
+- Authentication
+- Rendering
+- Accessibility
 
-Then:
+## 29.2 Browser Architecture
+
+- Browser process
+- Renderer process
+- JavaScript engine
+- Event loop
+- DOM
+- Rendering pipeline
+- Layout
+- Paint
+- Compositing
+- GPU acceleration
+
+## 29.3 Frameworks
 
 - React
 - Next.js
 
-Eventually understand how the browser communicates with your Rust backend.
+> Goal:  
+> Understand how the browser communicates with the Rust backend rather than merely knowing framework APIs.
 
----
+# 30. MOBILE
 
-# 19. Mobile
+- Android fundamentals
+- iOS fundamentals
+- Networking
+- Local storage
+- Permissions
+- Background execution
+- Push notifications
+- Cryptography
+- Offline-first architecture
+- Rust shared libraries
+- Platform-specific UI
 
-Later:
+# 31. PERFORMANCE ENGINEERING
 
-- Android/iOS fundamentals
-- networking
-- local storage
-- permissions
-- background execution
-- push notifications
-- cryptography
-- offline-first architecture
+## 31.1 Benchmarking
 
-Rust can become your core engine/shared library, while the UI layer can remain platform-specific.
+- Benchmark design
+- Microbenchmarks
+- Macrobenchmarks
+- Warm-up
+- Variance
+- Reproducibility
 
----
+## 31.2 Profiling
 
-# 20. Security
+- CPU profiling
+- Memory profiling
+- Allocation profiling
+- Flame graphs
+- perf
+- Cache profiling
+- I/O profiling
 
-Absolutely mandatory.
+## 31.3 Metrics
 
-Learn:
+- Latency
+- Throughput
+- p50
+- p90
+- p95
+- p99
+- p99.9
+- Error rate
+- Saturation
 
-- authentication
-- authorization
-- sessions
-- JWT
-- OAuth
-- PKCE
-- TLS
-- password hashing
-- secrets management
-- SQL injection
-- XSS
-- CSRF
-- SSRF
-- replay attacks
-- rate limiting
-- DDoS concepts
-- secure cookies
-- cryptographic key management
-- supply-chain security
+## 31.4 Queueing
 
----
+- Queueing theory
+- Little's Law
+- Service rate
+- Arrival rate
+- Queue depth
+- Tail latency
 
-# 21. Production engineering
+## 31.5 Optimization
 
-A billion users don't care how elegant your code looks if it goes down.
+- Cache locality
+- Allocation reduction
+- Batching
+- Vectorization
+- Parallelism
+- Lock reduction
+- Zero-copy
+- Syscall reduction
+- Network hop reduction
 
-Learn:
+# 32. TESTING
+
+- Unit testing
+- Integration testing
+- End-to-end testing
+- Property testing
+- Fuzz testing
+- Load testing
+- Stress testing
+- Chaos testing
+- Fault injection
+- Deterministic testing
+- Concurrency testing
+- Race detection
+- Reproducible testing
+
+# 33. OBSERVABILITY
+
+## 33.1 Metrics
+
+- Counters
+- Gauges
+- Histograms
+- Percentiles
+- RED metrics
+- USE metrics
+
+## 33.2 Logging
+
+- Structured logs
+- Log levels
+- Correlation IDs
+- Request IDs
+- Distributed tracing
+
+## 33.3 Monitoring
+
+- Health checks
+- Readiness
+- Liveness
+- Alerts
+- SLOs
+- SLIs
+- SLAs
+- Error budgets
+
+## 33.4 Debugging
+
+- Core dumps
+- Stack traces
+- Distributed traces
+- Profilers
+- Production debugging
+
+# 34. PRODUCTION ENGINEERING
+
+## 34.1 Linux
 
 - Linux
-- Docker
-- CI/CD
-- AWS
-- networking
-- observability
-- metrics
-- logs
-- tracing
-- alerting
-- profiling
-- load testing
-- benchmarking
-- capacity planning
-- autoscaling
-- caching
-- CDN
-- queues
-- disaster recovery
-- backups
-- deployment strategies
-- blue/green deployment
-- canary deployment
+- Shell
+- Processes
+- Networking
+- Filesystems
+- Permissions
 
----
+## 34.2 Containers
+
+- Docker
+- Container images
+- Namespaces
+- cgroups
+- Container networking
+- Container storage
+
+## 34.3 Cloud
+
+- AWS
+- Compute
+- Storage
+- Networking
+- Databases
+- IAM
+- Load balancers
+
+## 34.4 CI/CD
+
+- Git
+- GitHub
+- CI
+- Automated tests
+- Build pipelines
+- Deployment pipelines
+- Artifact management
+
+## 34.5 Deployment
+
+- Rolling deployment
+- Blue/green deployment
+- Canary deployment
+- Feature flags
+- Rollbacks
+
+## 34.6 Reliability
+
+- Capacity planning
+- Autoscaling
+- Caching
+- CDN
+- Queues
+- Backups
+- Disaster recovery
+- Replication
+- Multi-region systems
+
+# 35. PRODUCTS & SYSTEM DESIGN
+
+> Only after understanding the layers beneath them.
+
+## 35.1 Architecture
+
+- Requirements
+- Constraints
+- Architecture diagrams
+- Component boundaries
+- Interfaces
+- Data flows
+- Failure modes
+- Capacity planning
+
+## 35.2 Product Infrastructure
+
+- Authentication
+- Identity
+- Payments
+- Notifications
+- Search
+- Maps
+- Routing
+- Recommendations
+- Analytics
+- Event systems
+
+## 35.3 Your Systems
+
+### Koel
+
+- Identity
+- Protocol
+- Decision engine
+- Memory
+- Learning systems
+- Distributed protocol
+- Trust
+- Reputation
+- P2P infrastructure
+
+### Phunsuk
+
+- Maps
+- Places
+- Observations
+- Confirmation
+- Consensus
+- Trust weighting
+- Travel infrastructure
+
+### AlpKid
+
+- Market data ingestion
+- Streaming
+- Event processing
+- Time-series storage
+- Low-latency decisions
+- Risk engine
+- Execution
+- Backtesting
+- Monitoring
+
+### Sari
+
+- Data ingestion
+- Nutrition models
+- Recommendation systems
+- AI inference
+- Privacy
+- Identity
+- Data security
+
+# 36. CAPSTONE SYSTEMS PROJECTS
+
+> Do not merely complete courses.  
+> Build systems.
+
+## Level 1 — Language
+
+- CLI tools
+- Parser
+- Interpreter
+- Mini compiler
+
+## Level 2 — Memory
+
+- Allocator
+- Arena allocator
+- LRU cache
+- Ring buffer
+
+## Level 3 — OS
+
+- Shell
+- Process manager
+- File system experiments
+- mmap-based storage
+
+## Level 4 — Networking
+
+- TCP server
+- HTTP server
+- HTTP client
+- WebSocket server
+- UDP protocol
+
+## Level 5 — Storage
+
+- KV store
+- WAL
+- SSTable
+- LSM tree
+- B-tree database
+
+## Level 6 — Distributed Systems
+
+- Distributed KV store
+- Replicated database
+- Raft
+- Leader election
+- Distributed queue
+
+## Level 7 — P2P
+
+- P2P messaging
+- Peer discovery
+- DHT
+- P2P file sharing
+- Distributed content network
+
+## Level 8 — Blockchain
+
+- Toy blockchain
+- P2P blockchain
+- Mempool
+- Consensus
+- Validator network
+
+## Level 9 — AI Systems
+
+- Embedding engine
+- Vector search
+- RAG
+- Local inference server
+- Distributed inference
+
+## Level 10 — Real Products
+
+- Koel Protocol
+- KoelMaps
+- Phunsuk
+- AlpKid
+- Sari
+
+# 37. THE ENGINEERING LOOP
+
+For every concept:
+
+```text
+1. UNDERSTAND
+       ↓
+2. REDUCE TO PRIMITIVES
+       ↓
+3. IMPLEMENT A SMALL VERSION
+       ↓
+4. TEST IT
+       ↓
+5. BENCHMARK IT
+       ↓
+6. BREAK IT
+       ↓
+7. DEBUG IT
+       ↓
+8. READ THE REAL IMPLEMENTATION
+       ↓
+9. OPTIMIZE IT
+       ↓
+10. USE IT IN A REAL SYSTEM
+```
+
+> Never learn only by consuming information.
+
+# 38. FINAL ENGINEERING STANDARD
+
+Eventually you should be able to look at a system and ask:
+
+- What is the actual problem?
+- What are the constraints?
+- What state exists?
+- Where does the state live?
+- How does data move?
+- How many bytes move?
+- How many copies occur?
+- How many allocations occur?
+- How many syscalls occur?
+- How many network hops occur?
+- What is the latency?
+- What is the throughput?
+- What happens under load?
+- What happens when a node dies?
+- What happens when packets disappear?
+- What happens when messages arrive twice?
+- What happens when the database dies?
+- What happens when the network partitions?
+- What is the invariant?
+- What can be eliminated?
+- What can be cached?
+- What can be parallelized?
+- What can be made zero-copy?
+- What can be made deterministic?
+- What abstraction is hiding the real mechanism?
+- Can I build a smaller version myself?
