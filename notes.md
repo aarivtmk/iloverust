@@ -1,26 +1,7 @@
-# MASTER SYSTEMS ENGINEERING & RUST ROADMAP
-
-> Goal:
-> Become an engineer capable of understanding, designing, implementing,
-> optimizing, debugging and scaling complete computer systems from first principles.
->
-> Primary language: Rust  
-> Supporting languages: C, Assembly, SQL, TypeScript
->
-> Core philosophy:
-> Learn the abstraction.  
-> Understand what it hides.  
-> Rebuild a smaller version.  
-> Measure it.  
-> Break it.  
-> Understand why it failed.  
-> Then use the production abstraction.
-
-***
 
 # 0. ENGINEERING MINDSET
 
-## 0.1 First Principles Thinking
+## 0.1 Engineer Mindset
 
 - Define the actual problem
 - Identify constraints
@@ -186,21 +167,21 @@
 - Integrals
 - Gradients
 - Optimization
-
-## 2.5 Probability
-
-- Probability
-- Conditional probability
-- Bayes theorem
-- Random variables
-- Expected value
-- Variance
-- Standard deviation
-- Probability distributions
-- Normal distribution
-- Bernoulli distribution
-- Poisson distribution
-- Markov chains
+  
+  ## 2.5 Probability
+  
+  - Probability
+  - Conditional probability
+  - Bayes theorem
+  - Random variables
+  - Expected value
+  - Variance
+  - Standard deviation
+  - Probability distributions
+  - Normal distribution
+  - Bernoulli distribution
+  - Poisson distribution
+  - Markov chains
 
 ## 2.6 Statistics
 
